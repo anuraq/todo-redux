@@ -1,0 +1,6 @@
+.conCen {
+    width: fit-content;
+    margin: 4vh auto 2vh auto;
+    display: flex;
+    flex-direction: column;
+}

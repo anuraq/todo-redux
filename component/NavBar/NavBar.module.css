@@ -1,0 +1,13 @@
+.navBar {
+    width: 100vw;
+    height: 15vh;
+    background-color: black;
+    padding-top: 1.5rem;
+}
+.todoText {
+    font-family: 'Roboto', 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: 4rem;
+    text-align: center;
+    color: white;
+}
