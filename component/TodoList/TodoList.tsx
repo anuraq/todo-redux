@@ -1,19 +1,25 @@
 import React from 'react'
 import style from './TodoList.module.css'
 import Todo from '../Todo/Todo'
+import {todoStr} from '../../redux/todoSlice'
+import { useDispatch } from 'react-redux'
 
-const TodoList = () => {
-    let todos: Array<String> = ["Task 1", "Task 2", "Task 3"];
-    return (
+interface TodoListInterface {
+    title: String,
+    todos: Array<todoStr>
+}
+
+const TodoList = (props: TodoListInterface) => {
+    return props.todos ? (
         <div className={style.conCen}>
             <div>
-                Ongoing :
+                {props.title} :
             </div>
             <div>
-            {todos.map(todo => <Todo todo={todo}/>)}
+            {props.todos?.map(todo => <Todo todo={todo}/>)}
             </div>
         </div>
-    )
+    ) : <></>
 }
 
 export default TodoList
