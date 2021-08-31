@@ -1,15 +1,18 @@
 import React from 'react'
 import TodoList from '../TodoList/TodoList'
 import { useSelector, useDispatch } from 'react-redux';
-import {todoStr} from '../../redux/todoSlice'
+import { todoStr } from '../../redux/todoSlice'
+import { RootState } from '../../redux/store'
 
 const TodoListCon = () => {
-    const todo: Array<todoStr> = useSelector(state => state.value);
+    // const todo: todoStr[] = useSelector((state: RootState) => state.todos.values)
+    const todo : todoStr[] = useSelector((state: RootState) => state.todos);
     const dispatch = useDispatch()
+    console.log(todo)
     return (
         <div>
-            <TodoList title={"Done"} todos={todo?.filter(t => t.status == 0)}/>
-            <TodoList title={"Ongoing"} todos={todo?.filter(t => t.status == 1)}/>
+            <TodoList title={"Done"} todos={todo?.filter(t => t.status == 'done')}/>
+            <TodoList title={"Ongoing"} todos={todo?.filter(t => t.status == 'on')}/>
         </div>
     )
 }

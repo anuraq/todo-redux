@@ -10,13 +10,14 @@ interface TodoListInterface {
 }
 
 const TodoList = (props: TodoListInterface) => {
-    return props.todos ? (
+    console.log(props.todos)
+    return props.todos.length != 0 ? (
         <div className={style.conCen}>
             <div>
                 {props.title} :
             </div>
             <div>
-            {props.todos?.map(todo => <Todo todo={todo}/>)}
+            {props.todos?.map(todo => <Todo todo={todo} />)}
             </div>
         </div>
     ) : <></>
