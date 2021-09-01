@@ -6,18 +6,21 @@ import { todoStr } from '../../redux/todoSlice'
 import { RootState } from '../../redux/store'
 
 const AddTodo = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const [text, setText] = useState('');
     const idvalue = useRef(3);
-    
+    const inputBox = useRef<any>(null);
+    const handleClick = () => {
+        if(text == '') return;
+        dispatch(add({id: idvalue.current, data: text, status: 'on',}))
+        setText("");
+        inputBox.current.value = '';
+        idvalue.current += 1;
+    }
     return (
         <div className={style.conCen}>
-            <input className={style.inpBox} onChange={(e)=> setText(e.target.value)} ></input>
-            <div className={style.addBtn} onClick={() => {dispatch(add({id: idvalue.current, data: text, status: 'on',}))
-            setText("");
-            idvalue.current += 1;
-            console.log(text)}
-            }>ADD</div>
+            <input ref={inputBox} className={style.inpBox} onChange={() => setText(inputBox.current.value)} onKeyUp={(e)=> (e.code == 'Enter') ? handleClick() : 0}></input>
+            <div className={style.addBtn} onClick={handleClick}>ADD</div>
         </div>
     )
 }

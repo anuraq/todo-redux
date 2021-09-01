@@ -17,7 +17,7 @@ const TodoList = (props: TodoListInterface) => {
                 {props.title} :
             </div>
             <div>
-            {props.todos?.map(todo => <Todo todo={todo} />)}
+            {props.todos?.map(todo => <Todo todo={todo} key={todo.id}/>)}
             </div>
         </div>
     ) : <></>
