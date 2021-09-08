@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap');
+
 .navBar {
     width: 100vw;
     height: 15vh;
-    background-color: black;
+    background-color: #222831;
     padding-top: 1.5rem;
+
 }
 .todoText {
-    font-family: 'Roboto', 'Courier New', Courier, monospace;
+    font-family: 'Sora', sans-serif;
     font-weight: bolder;
     font-size: 4rem;
     text-align: center;
-    color: white;
+    color: #00ADB5;
 }
